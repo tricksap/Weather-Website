@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+}
+h1 {
+  font-size: 5rem;
+}
+#today {
+  height: 100vh;
+  background-color: rgb(228, 228, 228);
+}
+
+.details {
+  background-color: white;
+  height: 10%;
+  width: 50%;
+}
+
+#next-day {
+  background-color: white;
+}
+
+.location {
+  font-size: 3rem;
+}
+.week {
+  height: 150px;
+  width: 120px;
+  margin: 0% 10px 2% 10px;
+  background-color: white;
+  border-radius: 30px;
+}
+
+.info {
+  /* height: 20px;
+  width: 400px; */
+  padding: 0 10px 10px 10px;
+  margin: 0% 10% 5% 10%;
+  background-color: white;
+  border-radius: 30px;
+}
+.data {
+  font-size: 3rem;
+}
+
+.t {
+  height: 100px;
+  margin-bottom: 10px;
+}
