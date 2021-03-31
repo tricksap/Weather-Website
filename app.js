@@ -2,7 +2,9 @@ const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const convert = require("./time");
 require("dotenv").config();
+const time = require(__dirname + "/time.js");
 
 const app = express();
 
@@ -32,7 +34,11 @@ app.get("/", function (req, res) {
     response.on("data", function (data) {
       const weatherData = JSON.parse(data);
       // console.log(weatherData);
-      res.render("home", { weatherData: weatherData });
+      res.render("home", {
+        weatherData: weatherData,
+        sunrise: convert(weatherData.current.sunrise),
+        sunset: convert(weatherData.current.sunset),
+      });
     });
   });
 });

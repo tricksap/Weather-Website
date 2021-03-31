@@ -13,16 +13,24 @@
       crossorigin="anonymous"
     />
 
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- css -->
     <link rel="stylesheet" href="/css/style.css" />
 
     <title>Weather App</title>
   </head>
+
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-4">
-          <div>Search</div>
+        <div id="today" class="col-4">
+          <!-- <div>Search</div> -->
           <h1 class="location"><%=weatherData.timezone%></h1>
           <%let d = new Date%>
           <h3><%=day[d.getDay()]%></h3>
@@ -32,8 +40,9 @@
           />
           <h1><%=weatherData.current.temp%></h1>
         </div>
-        <div id="today" class="col-8">
-          <div class="row">
+
+        <div id="details" class="col-8">
+          <div class="row next-day">
             <h3>Week</h3>
             <div class="week">
               <p><%= day[(d.getDay()+1)%7] %></p>
@@ -90,13 +99,14 @@
             <div class="col-6">
               <div class="info">
                 <p>Wind Speed</p>
-                <p class="data"><%=weatherData.current.wind_speed%></p>
+
+                <p class="data"><%=weatherData.current.wind_speed%> m/s</p>
               </div>
             </div>
             <div class="col-6">
               <div class="info">
                 <p>Humidity</p>
-                <p class="data"><%=weatherData.current.humidity%></p>
+                <p class="data"><%=weatherData.current.humidity%>%</p>
               </div>
             </div>
           </div>
@@ -109,8 +119,9 @@
             </div>
             <div class="col-6">
               <div class="info">
-                <p>Visibility</p>
-                <p class="data"><%=weatherData.current.visibility%></p>
+                <p>Sunrise & Sunset</p>
+                <p class="data"><%=sunrise%></p>
+                <!-- <p class=><%=sunset%></p> -->
               </div>
             </div>
           </div>
