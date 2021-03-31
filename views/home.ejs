@@ -22,25 +22,67 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-4">
+          <div>Search</div>
           <h1 class="location"><%=weatherData.timezone%></h1>
-          <h3>time</h3>
+          <%let d = new Date%>
+          <h3><%=day[d.getDay()]%></h3>
           <img
-            src=" http://openweathermap.org/img/wn/10d@2x.png"
-            alt=""
+            src="images/<%=weatherData.current.weather[0].icon%>.png"
             height="300px"
           />
           <h1><%=weatherData.current.temp%></h1>
-          <div class="row">Date today</div>
         </div>
         <div id="today" class="col-8">
           <div class="row">
             <h3>Week</h3>
-            <div class="week">Sun</div>
-            <div class="week">Mon</div>
-            <div class="week">Tues</div>
-            <div class="week">Wed</div>
-            <div class="week">Thu</div>
-            <div class="week">Fri</div>
+            <div class="week">
+              <p><%= day[(d.getDay()+1)%7] %></p>
+              <img
+                src="images/<%=weatherData.daily[1].weather[0].icon%>.png"
+                height="80px"
+              />
+              <p><%=weatherData.daily[1].temp.day%></p>
+            </div>
+            <div class="week">
+              <p><%= day[(d.getDay()+2)%7] %></p>
+              <img
+                src="images/<%=weatherData.daily[2].weather[0].icon%>.png"
+                height="80px"
+              />
+              <p><%=weatherData.daily[2].temp.day%></p>
+            </div>
+            <div class="week">
+              <p><%= day[(d.getDay()+3)%7] %></p>
+              <img
+                src="images/<%=weatherData.daily[3].weather[0].icon%>.png"
+                height="80px"
+              />
+              <p><%=weatherData.daily[3].temp.day%></p>
+            </div>
+            <div class="week">
+              <p><%= day[(d.getDay()+4)%7] %></p>
+              <img
+                src="images/<%=weatherData.daily[4].weather[0].icon%>.png"
+                height="80px"
+              />
+              <p><%=weatherData.daily[4].temp.day%></p>
+            </div>
+            <div class="week">
+              <p><%= day[(d.getDay()+5)%7] %></p>
+              <img
+                src="images/<%=weatherData.daily[5].weather[0].icon%>.png"
+                height="80px"
+              />
+              <p><%=weatherData.daily[5].temp.day%></p>
+            </div>
+            <div class="week">
+              <p><%= day[(d.getDay()+6)%7] %></p>
+              <img
+                src="images/<%=weatherData.daily[6].weather[0].icon%>.png"
+                height="80px"
+              />
+              <p><%=weatherData.daily[6].temp.day%></p>
+            </div>
           </div>
 
           <h3>Today's Highlight</h3>
