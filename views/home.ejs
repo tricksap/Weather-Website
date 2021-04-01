@@ -29,7 +29,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div id="today" class="col-4">
+        <div id="today" class="col-lg-4 col-sm-12">
           <!-- <div>Search</div> -->
           <h1 class="location"><%=weatherData.timezone%></h1>
           <%let d = new Date%>
@@ -38,10 +38,16 @@
             src="images/<%=weatherData.current.weather[0].icon%>.png"
             height="300px"
           />
-          <h1><%=weatherData.current.temp%></h1>
+          <div>
+            <h1><%=weatherData.current.temp%></h1>
+
+            <p class="weather-description">
+              <%=weatherData.current.weather[0].description%>
+            </p>
+          </div>
         </div>
 
-        <div id="details" class="col-8">
+        <div id="details" class="col-lg-8 col-sm-12">
           <div class="row next-day">
             <h3>Week</h3>
             <div class="week">
@@ -94,34 +100,51 @@
             </div>
           </div>
 
-          <h3>Today's Highlight</h3>
-          <div class="row">
-            <div class="col-6">
-              <div class="info">
-                <p>Wind Speed</p>
+          <div class="row highlights">
+            <h3>Today's Highlight</h3>
+            <div class="row">
+              <div class="col-6">
+                <div class="info">
+                  <p>Wind Speed</p>
 
-                <p class="data"><%=weatherData.current.wind_speed%> m/s</p>
+                  <p class="data"><%=weatherData.current.wind_speed%> m/s</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="info">
+                  <p>Humidity</p>
+                  <p class="data"><%=weatherData.current.humidity%>%</p>
+                </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="info">
-                <p>Humidity</p>
-                <p class="data"><%=weatherData.current.humidity%>%</p>
+            <div class="row">
+              <div class="col-6">
+                <div class="info">
+                  <p>UV Index</p>
+                  <p class="data"><%=weatherData.current.uvi%></p>
+                  <!-- <div class="progress">
+                    <div class="progress-done" data-done="90">70%</div>
+                  </div> -->
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="info">
-                <p>UV Index</p>
-                <p class="data"><%=weatherData.current.uvi%></p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="info">
-                <p>Sunrise & Sunset</p>
-                <p class="data"><%=sunrise%></p>
-                <!-- <p class=><%=sunset%></p> -->
+              <div class="col-6">
+                <div class="info">
+                  <p>Sunrise & Sunset</p>
+                  <p class="sun-details">
+                    <img
+                      src="images/sunrise.png"
+                      height="40px"
+                      class="sun"
+                    /><%=sunrise%>
+                  </p>
+                  <p class="sun-details">
+                    <img
+                      src="images/sunset.png"
+                      height="40px"
+                      class="sun"
+                    /><%=sunset%>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -135,5 +158,6 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
